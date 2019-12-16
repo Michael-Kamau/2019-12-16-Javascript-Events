@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Javascript Events and Custom Events</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+
+
+</head>
+
+<body>
+
+<h6 id="myelement">7</h6>
+
+<button onclick="showAlert()">Click me</button>
+
+<script type="text/javascript">
+    alert("This alert box was called with the onload event");
+</script>
+
+<script type="text/javascript">
+
+    //BUILT IN JAVASCRIPT EVENTS
+    function showAlert(){
+        alert('You have clicked the button that triggers me');
+    }
+
+
+
+    //CUSTOM EVENTS IN JAVASCRIPT
+const headerTag=document.getElementById('myelement');
+headerTag.addEventListener('switch',function(e){
+    headerTag.value=e.detail.number;
+});
+ function switchNo(n){
+     const event = new CustomEvent('switch',{
+         detail:{
+             number:n
+         }
+     });
+     headerTag.dispatchEvent(event);
+ }
+
+ //now calling the swithchNo(3) changes the value of the h6 to 3
+
+
+
+//DYNAMIC TYPING IN JAVASCRIPT
+var myvariable= 'This is a String';
+console.log(myvariable);
+var myvariable= 47;
+console.log(myvariable);
+//The first console log displays 'This is a string' while the second one displays 47.
+
+
+
+
+    //JAVASCRIPT PROMISES
+let myPromise= new Promise((resolve,reject) =>{
+    let a=1+1;
+    if( a==2) {
+        resolve('No error module');
+    } else{
+        reject(' Error Encountered module');
+    }
+});
+
+myPromise.then((message)=>{
+    console.log('This is from'+message);
+}).catch(message =>{
+    Console.log('This error is in the'+message);
+})
+
+
+
+</script>
+</body>
+</html>

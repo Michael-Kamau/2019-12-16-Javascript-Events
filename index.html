@@ -34,7 +34,7 @@
     //CUSTOM EVENTS IN JAVASCRIPT
 const headerTag=document.getElementById('myelement');
 headerTag.addEventListener('switch',function(e){
-    headerTag.value=e.detail.number;
+    headerTag.textContent=e.detail.number;
 });
  function switchNo(n){
      const event = new CustomEvent('switch',{
